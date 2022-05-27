@@ -3,6 +3,8 @@ package org.lession5;
 import org.lession4.Random;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringType {
     public static void longestWord (String text){
@@ -57,26 +59,72 @@ public class StringType {
         return isPalindrome;
     }
 
-    public static String replacement (String text, String oldWord, String newWord) {
+    public static String censorship (String text, String censContext) {
         System.out.println("-----3-----");
-        boolean isTrue = false;
-        String[] split = text.split(" ");
-        for (int i = 0; i < split.length; i++) {
-            if (oldWord.equalsIgnoreCase(split[i])) {
-
-            }
-
-        }
-            return text.replaceAll(oldWord, newWord);
+        Pattern pattern = Pattern.compile(censContext, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(text);
+        String newText = matcher.replaceAll("[Вырезано цензурой]");
+        return newText;
 
     }
 
+    public static int numEntry (String text, String subtext) {
+        System.out.println("-----4-----");
+        int numEntry = 0;
+        Pattern pattern = Pattern.compile(subtext);
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            numEntry++;
+        }
+        return numEntry;
+    }
+
+    public static String inversion (String text) {
+        System.out.println("-----5-----");
+        String[] split = text.split(" ");
+        for (int i = 0; i < split.length; i++) {
+            StringBuilder revers = new StringBuilder(split[i]);
+            split[i] = revers.reverse().toString();
+        }
+
+            String result = new String();
+            for (int k = 0; k < split.length; k++) {
+                result = String.join(" ", result, split[k]);
+
+            }
+        return result.trim();
+    }
+
+//    public static void longWord(String text){
+//        int length = 0;
+//        String result = new String();
+//        String regex = "\w.+?\s";
+//        Pattern pattern = Pattern.compile(regex);
+//        Matcher matcher = pattern.matcher(text);
+//        for (int i = 50; i > 0; i-- ){
+//            if (i == matcher.find().length()) {
+//                length = i;
+//                break;
+//            }
+//        }
+//        while(matcher.find().length == length){
+//            int start = matcher.start();
+//            int end = matcher.end();
+//            System.out.println(text.substring(start, end));
+//        }
+//    }
+
+
+
 
     public static void main(String[] args) {
-        longestWord("Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему. Все смешалось в доме Облонских.");
-        System.out.println(isPalindrome("Казак"));
-        String text = "Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему. Все смешалось в доме Облонских.";
-        System.out.println(replacement(text, "все", "почти все"));
+//        String text = "Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему. Все смешалось в доме Облонских.";
+//        longestWord(text);
+//        System.out.println(isPalindrome("Казак"));
+//        System.out.println(censorship(text, "Все"));
+//        System.out.println(numEntry(text, "Все"));
+        String text2 = "This is a test string";
+        System.out.println(inversion(text2));;
     }
 
 }
