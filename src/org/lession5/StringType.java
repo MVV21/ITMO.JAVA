@@ -46,17 +46,14 @@ public class StringType {
         System.out.println(Arrays.toString(resultArray));
     }
 
-    public static boolean isPalindrome (String word){
+    public static void isPalindrome (String word){
         System.out.println("-----2-----");
-        word = word.toLowerCase();
-        boolean isPalindrome = true;
-        char[] letter = word.toCharArray();
-        for(int i = 0; i < word.length()/2; i++){
-            if (letter[i] != letter[word.length()-1-i]){
-                isPalindrome = false;
-            }
+        StringBuilder check = new StringBuilder(word);
+        if (word.equalsIgnoreCase(check.reverse().toString())) {
+            System.out.println(word + " is palindrome");
+        } else {
+            System.out.println(word + " is not palindrome");
         }
-        return isPalindrome;
     }
 
     public static String censorship (String text, String censContext) {
@@ -120,11 +117,11 @@ public class StringType {
     public static void main(String[] args) {
 //        String text = "Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему. Все смешалось в доме Облонских.";
 //        longestWord(text);
-//        System.out.println(isPalindrome("Казак"));
+        isPalindrome("Топот");
 //        System.out.println(censorship(text, "Все"));
 //        System.out.println(numEntry(text, "Все"));
-        String text2 = "This is a test string";
-        System.out.println(inversion(text2));;
+//        String text2 = "This is a test string";
+//        System.out.println(inversion(text2));;
     }
 
 }
