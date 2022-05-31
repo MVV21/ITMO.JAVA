@@ -17,8 +17,6 @@ public class Main {
         map.put(user4, (int)(Math.random()*1000000));
         map.put(user5, (int)(Math.random()*1000000));
 
-
-
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите имя:");
         String name = scan.next();

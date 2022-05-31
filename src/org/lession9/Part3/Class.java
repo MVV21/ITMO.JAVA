@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Class {
     public static void main (String[] args){
+
         List<Integer> arrayList = new ArrayList<>();
         List<Integer> linkedList = new LinkedList<>();
 

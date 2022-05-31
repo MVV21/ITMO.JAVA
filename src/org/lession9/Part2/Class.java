@@ -23,6 +23,7 @@ public class Class {
         while (iterator.hasNext()) {
             newSet.add(iterator.next());
         }
+
         return newSet;
     }
 }
