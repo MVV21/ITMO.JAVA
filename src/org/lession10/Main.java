@@ -15,7 +15,7 @@ public class Main {
 
 //        Задание №2
 //        String text = "А.С. Пушкин";
-//        secondMethod(file1, text);
+//        secondMethod(file1, false, text);
 //        System.out.println(firstMethod(file1));
 
 //        Задание №3
